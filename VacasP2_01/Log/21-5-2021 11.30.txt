@@ -1,0 +1,24 @@
+	 Carga de Alumnos   21-5-2021 11.31: 
+	 Carga de Alumnos   21-5-2021 11.31: 
+	 Carga de Profesores   21-5-2021 11.31: 
+21-5-2021 11.31: El profesor con ID 0 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 2 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 4 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 6 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 8 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 10 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 12 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 14 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 16 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 18 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 20 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 1 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 3 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 5 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 7 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 9 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 11 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 13 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 15 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 17 no puede ser ingresado, verifique que todos los campos sean correctos
+21-5-2021 11.31: El profesor con ID 19 no puede ser ingresado, verifique que todos los campos sean correctos

@@ -1,0 +1,24 @@
+	 Carga de Alumnos   21-5-2021 12.31: 
+21-5-2021 12.31: Linea 0: Error al convertir el ID "﻿ID " 
+21-5-2021 12.31: Linea 0: Error al convertir el Carnet "CARNET " 
+21-5-2021 12.31: Linea 0: El genero ingresado debe ser "M" o "F": Genero
+21-5-2021 12.31: El Carnet o ID ingresado: 1234567890, 5 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 201900597, 6 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 202010303, 7 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 202010810, 8 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 201800476, 9 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 1234567890, 10 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 201900597, 11 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 202010303, 12 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 202010810, 13 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 201800476, 14 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 1234567890, 15 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 201900597, 16 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 202010303, 17 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 202010810, 18 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 201800476, 19 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 1234567890, 20 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 201900597, 21 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 202010303, 22 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 202010810, 23 ya se encuentra registrado
+21-5-2021 12.31: El Carnet o ID ingresado: 201800476, 24 ya se encuentra registrado
