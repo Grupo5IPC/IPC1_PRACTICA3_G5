@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.*;
 
 public class VentanaArchivos extends JFrame implements ActionListener {
@@ -16,22 +17,22 @@ public class VentanaArchivos extends JFrame implements ActionListener {
     JButton boton = new JButton("Cargar");
     JButton aceptar = new JButton("Aceptar");
     JFrame infoVen = new JFrame("Información");
-    
+
     public VentanaArchivos() {
         setTitle("Proyecto de IPC");
         //Icono
         Toolkit mipantalla = Toolkit.getDefaultToolkit();
         Image miIcono = mipantalla.getImage("build/classes/ipc1/proyecto1_201900597/principal.jpg");
-        
+
         setIconImage(miIcono);
         Dimension tamPantalla = mipantalla.getScreenSize();
-        
-            int alturaPantalla = tamPantalla.height;
-            int anchoPantalla = tamPantalla.width;
-        
-            setSize(anchoPantalla/2,alturaPantalla/2);
-            
-            setLocation(anchoPantalla/4, alturaPantalla/4);
+
+        int alturaPantalla = tamPantalla.height;
+        int anchoPantalla = tamPantalla.width;
+
+        setSize(anchoPantalla / 2, alturaPantalla / 2);
+
+        setLocation(anchoPantalla / 4, alturaPantalla / 4);
         this.getContentPane().setBackground(null);
         this.setResizable(false);
         this.setLayout(null);
@@ -49,7 +50,7 @@ public class VentanaArchivos extends JFrame implements ActionListener {
         this.add(titulo);
 
         //INFO
-        info.setBounds(240, 100, 250, 50);
+        info.setBounds(250, 100, 250, 50);
         info.setFont(new Font("Monserrat", Font.ITALIC, 13));
         info.setVisible(true);
         this.add(info);
@@ -91,16 +92,33 @@ public class VentanaArchivos extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == boton) {
+        if (ae.getSource() == boton && textField.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "ERROR: Debe de ingresar una ruta");
+            if (ae.getSource() == aceptar) {
+                infoVen.dispose();
+            }
+        } else if (ae.getSource() == boton) {
             String ruta = textField.getText();
-            //Main.getFilas(ruta);
-            Main.C_alumnos(ruta + "\\Alumnos.csv");
-            Main.C_cursos(ruta + "\\Curso.csv");
-            Main.Asignacion(ruta + "\\Asignacion.csv");
-            InfoVentana();
+            File file = new File(ruta);
+            if (file.exists()) {
+                JOptionPane.showMessageDialog(this, "ERROR: No se encuentran todos los archivos en la carpeta");
+//                    C:\Program Files\NetBeans 8.2 RC\bin\COSAS DE JAVA\PRACTICA_3_VACAS
+            } else {
+                //Main.getFilas(ruta);
+                Main.C_alumnos(ruta + "\\Alumnos.csv");
+                Main.C_cursos(ruta + "\\Curso.csv");
+                Main.Asignacion(ruta + "\\Asignacion.csv");
+                JOptionPane.showMessageDialog(this, "Los archivos han sido cargados exitosamente");
+                this.setVisible(false);
+//            new Menu();
+            }
         }
-        if (ae.getSource() == aceptar) {
-            infoVen.dispose();
-        }
+
+//        } else {
+//            JOptionPane.showMessageDialog(this, "ERROR: Ingrese nuevamente la direccion");
+//            if (ae.getSource() == aceptar) {
+//                infoVen.dispose();
+//            }
+//        }
     }
 }
