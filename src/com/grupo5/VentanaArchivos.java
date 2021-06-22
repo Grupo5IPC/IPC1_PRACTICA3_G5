@@ -16,13 +16,12 @@ public class VentanaArchivos extends JFrame implements ActionListener {
     JTextField textField = new JTextField();
     JButton boton = new JButton("Cargar");
     JButton aceptar = new JButton("Aceptar");
-    JFrame infoVen = new JFrame("Información");
 
     public VentanaArchivos() {
         setTitle("Proyecto de IPC");
         //Icono
         Toolkit mipantalla = Toolkit.getDefaultToolkit();
-        Image miIcono = mipantalla.getImage("build/classes/ipc1/proyecto1_201900597/principal.jpg");
+        Image miIcono = mipantalla.getImage("principal.jpg");
 
         setIconImage(miIcono);
         Dimension tamPantalla = mipantalla.getScreenSize();
@@ -67,42 +66,15 @@ public class VentanaArchivos extends JFrame implements ActionListener {
         this.add(boton);
     }
 
-    public void InfoVentana() {
-        //VENTANA
-        infoVen.setSize(300, 130);
-        infoVen.setLocationRelativeTo(null);
-        infoVen.getContentPane().setBackground(null);
-        infoVen.setResizable(false);
-        infoVen.setLayout(null);
-        infoVen.setVisible(true);
-
-        //INFO
-        JLabel text = new JLabel("Archivos cargados exitosamente");
-        text.setBounds(60, 10, 250, 50);
-        text.setFont(new Font("Monserrat", Font.ITALIC, 12));
-        text.setVisible(true);
-        infoVen.add(text);
-
-        //BOTÓN
-        aceptar.setBounds(100, 60, 100, 30);
-        aceptar.setVisible(true);
-        aceptar.addActionListener(this);
-        infoVen.add(aceptar);
-    }
-
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == boton && textField.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "ERROR: Debe de ingresar una ruta");
-            if (ae.getSource() == aceptar) {
-                infoVen.dispose();
-            }
         } else if (ae.getSource() == boton) {
             String ruta = textField.getText();
-            File file = new File(ruta);
-            if (file.exists()) {
+//            File file = new File(ruta);
+            if ((ruta + "\\Alumnos.csv" == null) && (ruta + "\\Curso.csv" == null) && (ruta + "\\Asignacion.csv" == null)) {
                 JOptionPane.showMessageDialog(this, "ERROR: No se encuentran todos los archivos en la carpeta");
-//                    C:\Program Files\NetBeans 8.2 RC\bin\COSAS DE JAVA\PRACTICA_3_VACAS
             } else {
                 //Main.getFilas(ruta);
                 Main.C_alumnos(ruta + "\\Alumnos.csv");
@@ -110,7 +82,7 @@ public class VentanaArchivos extends JFrame implements ActionListener {
                 Main.Asignacion(ruta + "\\Asignacion.csv");
                 JOptionPane.showMessageDialog(this, "Los archivos han sido cargados exitosamente");
                 this.setVisible(false);
-//            new Menu();
+            new Menu();
             }
         }
 
