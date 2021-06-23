@@ -72,9 +72,11 @@ public class VentanaArchivos extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, "ERROR: Debe de ingresar una ruta");
         } else if (ae.getSource() == boton) {
             String ruta = textField.getText();
-//            File file = new File(ruta);
-            if ((ruta + "\\Alumnos.csv" == null) && (ruta + "\\Curso.csv" == null) && (ruta + "\\Asignacion.csv" == null)) {
-                JOptionPane.showMessageDialog(this, "ERROR: No se encuentran todos los archivos en la carpeta");
+            File alumnos = new File(ruta + "\\Alumnos.csv");
+            File curso = new File(ruta + "\\Curso.csv");
+            File asignacion = new File(ruta + "\\Asignacion.csv");
+            if ((alumnos.exists() && curso.exists() && asignacion.exists()) == false) {
+                JOptionPane.showMessageDialog(this, "ERROR: La ruta esta mal ingresada o no se encuentran todos los archivos en la carpeta");
             } else {
                 //Main.getFilas(ruta);
                 Main.C_alumnos(ruta + "\\Alumnos.csv");

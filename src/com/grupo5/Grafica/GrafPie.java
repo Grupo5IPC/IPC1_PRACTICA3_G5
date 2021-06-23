@@ -17,6 +17,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import com.grupo5.Alumnos.*;
 
 public class GrafPie extends JFrame implements ActionListener {
     
@@ -25,6 +26,7 @@ public class GrafPie extends JFrame implements ActionListener {
     JButton boton = new JButton("Ordenar");
     JTextField txtRuta, txtTitulo;
     JButton btnOrdenar;
+    public static Gestor_alumno gestor_alumno;
     
     public GrafPie() {
         configurarVentana();
@@ -53,6 +55,7 @@ public class GrafPie extends JFrame implements ActionListener {
         this.setVisible(true);
 
         Componentes();
+        Pie();
     }
 
         public void Componentes() {
@@ -68,22 +71,22 @@ public class GrafPie extends JFrame implements ActionListener {
         boton.addActionListener(this);
         this.add(boton);
     }
-//
-//    private void Pie(String[][] array) {
-//        File txt = buscar.RutaArchivo(this, txtRuta);
-//        array = this.buscar.Archivo(new JFrame(), txt);
-//        DefaultPieDataset datos = new DefaultPieDataset();
-//        for (int i = 0; i < array[0].length; i++) {
-//            int valor = Integer.parseInt(array[1][i]);
-////            datos.PieDataset(valor, array[0][i]/*, array[1][i]*/);
-//            datos.setValue(array[0][i], valor);
-//        }
-//        JFreeChart ch = ChartFactory.createPieChart("Grafica de pie", datos, true, true, false);
-//        ChartPanel cp = new ChartPanel(ch);
-//        add(cp);
-//        cp.setBounds(70, 200, 1200, 350);
-//        repaint();
-//    }
+
+    private void Pie() {
+        String array = this.gestor_alumno.getGenero(4);
+        DefaultPieDataset datos = new DefaultPieDataset();
+        for (int i = 0; i < array.length(); i++) {
+            int valor = Integer.parseInt(array);
+//            datos.PieDataset(valor, array[0][i]/*, array[1][i]*/);
+            datos.setValue(array, valor);
+        }
+        JFreeChart ch = ChartFactory.createPieChart("Grafica de pie", datos, true, true, false);
+        ChartPanel cp = new ChartPanel(ch);
+        add(cp);
+        cp.setBounds(70, 200, 1200, 350);
+        setVisible(true);
+        repaint();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
