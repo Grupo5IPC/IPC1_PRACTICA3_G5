@@ -1,5 +1,6 @@
 package com.grupo5;
 
+import com.grupo5.Alumnos.Gestor_alumno;
 import com.grupo5.Grafica.GrafPie;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,21 +13,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-class Menu extends JFrame implements ActionListener {
+public class Menu extends JFrame implements ActionListener {
 
-    JFrame ventana;
     JButton botonPie = new JButton("Grafica por sexo (Pie)");
     JButton botonBar1 = new JButton("Grafica por edad (Barras)");
     JButton botonBar2 = new JButton("Grafica por notas (Barras)");
     JButton botonInicio = new JButton("Inicio");
-    JTextField txtRuta, txtTitulo;
-    JButton btnOrdenar;
-    
-    public Menu(){
-    configurarVentana();
-}
+    public static Gestor_alumno gestor_alumno;
 
-    private void configurarVentana() {
+    public Menu() {
         setTitle("Proyecto de IPC");
         //Icono
         Toolkit mipantalla = Toolkit.getDefaultToolkit();
@@ -51,25 +46,24 @@ class Menu extends JFrame implements ActionListener {
     }
 
     public void Componentes() {
-
         //BOTÓN PIE
         botonPie.setBounds(90, 40, 500, 50);
         botonPie.setVisible(true);
         botonPie.addActionListener(this);
         this.add(botonPie);
-        
+
         //BOTÓN BARRA EDAD
         botonBar1.setBounds(90, 110, 500, 50);
         botonBar1.setVisible(true);
         botonBar1.addActionListener(this);
         this.add(botonBar1);
-        
+
         //BOTÓN BARRA NOTA
         botonBar2.setBounds(90, 180, 500, 50);
         botonBar2.setVisible(true);
         botonBar2.addActionListener(this);
         this.add(botonBar2);
-        
+
         //BOTÓN INICIO
         botonInicio.setBounds(90, 250, 500, 50);
         botonInicio.setVisible(true);
@@ -78,11 +72,10 @@ class Menu extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.botonPie) {
-            setVisible(false);
-            new GrafPie();
-            repaint();
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == this.botonPie) {
+            this.dispose();
+            GrafPie grafica = new GrafPie();
         }
     }
 

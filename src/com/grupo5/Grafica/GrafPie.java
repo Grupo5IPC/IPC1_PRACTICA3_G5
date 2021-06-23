@@ -18,22 +18,18 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import com.grupo5.Alumnos.*;
+import java.awt.BorderLayout;
 
 public class GrafPie extends JFrame implements ActionListener {
-    
+
     JFrame ventana;
     JLabel titulo = new JLabel("GRAFICA DE PIE POR SEXO");
     JButton boton = new JButton("Ordenar");
     JTextField txtRuta, txtTitulo;
     JButton btnOrdenar;
     public static Gestor_alumno gestor_alumno;
-    
-    public GrafPie() {
-        configurarVentana();
-        repaint();
-    }
 
-    private void configurarVentana() {
+    public GrafPie() {
         setTitle("Proyecto de IPC");
         //Icono
         Toolkit mipantalla = Toolkit.getDefaultToolkit();
@@ -55,10 +51,10 @@ public class GrafPie extends JFrame implements ActionListener {
         this.setVisible(true);
 
         Componentes();
-        Pie();
+        Grafica();
     }
 
-        public void Componentes() {
+    public void Componentes() {
         //TITULO
         titulo.setBounds(220, 10, 300, 50);
         titulo.setFont(new Font("Monserrat", Font.BOLD, 18));
@@ -70,21 +66,29 @@ public class GrafPie extends JFrame implements ActionListener {
         boton.setVisible(true);
         boton.addActionListener(this);
         this.add(boton);
+
+        //PANEL
+        /*panel1.setSize(this);
+        panel1.setVisible(true);
+        this.add(panel1);*/
     }
 
-    private void Pie() {
-        String array = this.gestor_alumno.getGenero(4);
+    public void Grafica() {
+        int[] Aux = gestor_alumno.Cont_Genero();
         DefaultPieDataset datos = new DefaultPieDataset();
-        for (int i = 0; i < array.length(); i++) {
-            int valor = Integer.parseInt(array);
-//            datos.PieDataset(valor, array[0][i]/*, array[1][i]*/);
-            datos.setValue(array, valor);
-        }
-        JFreeChart ch = ChartFactory.createPieChart("Grafica de pie", datos, true, true, false);
-        ChartPanel cp = new ChartPanel(ch);
-        add(cp);
-        cp.setBounds(70, 200, 1200, 350);
-        setVisible(true);
+        datos.setValue("Hombres", Aux[0]);
+        datos.setValue("Mujeres", Aux[1]);
+        //System.out.println("Hombres:" + Aux[0]);
+        //System.out.println("Mujeres:" + Aux[1]);
+
+        JFreeChart grafica = ChartFactory.createPieChart("Generos", datos, true, true, false);
+        ChartPanel panel = new ChartPanel(grafica);
+        panel.setMouseWheelEnabled(true);
+        panel.setPreferredSize(new Dimension(600, 500));
+
+        this.setLayout(new BorderLayout());
+        this.add(panel, BorderLayout.NORTH);
+        pack();
         repaint();
     }
 
@@ -92,9 +96,6 @@ public class GrafPie extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.btnOrdenar) {
             setVisible(false);
-//            new VentanaOrden();
-            repaint();
         }
     }
-
 }

@@ -89,6 +89,28 @@ public class Gestor_alumno {
         }
     }
 
+    public int[] Cont_Genero() {
+        int[] arreglo = null;
+        int contMasc = 0;
+        int contFem = 0;
+
+        for (int i = 0; i < alumnos.length; i++) {
+            //System.out.println("Entré");
+
+            if (alumnos[i].getGenero() == 'M') {
+                ++contMasc;
+            } else {
+                ++contFem;
+            }
+        }
+        arreglo[0] = contMasc;
+        arreglo[1] = contFem;
+        System.out.println("Masculinos = " + contMasc);
+        System.out.println("Femeninos = " + contFem);
+        
+        return arreglo;
+    }
+
     public boolean asginar_curso(int id_a, int id_c, String fecha) {
         for (int i = 0; i < asignaciones.length; i++) {
             if (asignaciones[i] == null) {
