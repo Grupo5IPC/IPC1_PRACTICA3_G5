@@ -19,9 +19,12 @@ public class Menu extends JFrame implements ActionListener {
     JButton botonBar1 = new JButton("Grafica por edad (Barras)");
     JButton botonBar2 = new JButton("Grafica por notas (Barras)");
     JButton botonInicio = new JButton("Inicio");
-    public static Gestor_alumno gestor_alumno;
+   public static Gestor_alumno gestor_alumno;
+    public static Gestor_curso gestor_curso;
 
-    public Menu() {
+    public Menu(Gestor_alumno alumno, Gestor_curso curso) {
+        gestor_alumno = alumno;
+        gestor_curso = curso;
         setTitle("Proyecto de IPC");
         //Icono
         Toolkit mipantalla = Toolkit.getDefaultToolkit();
@@ -75,7 +78,7 @@ public class Menu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.botonPie) {
             this.dispose();
-            GrafPie grafica = new GrafPie();
+            GrafPie grafica = new GrafPie(gestor_alumno, gestor_curso);
         }
     }
 
