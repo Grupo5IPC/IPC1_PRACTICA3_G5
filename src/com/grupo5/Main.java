@@ -22,7 +22,7 @@ public class Main {
         log = new Log();
         verificaciones = new Handler(log);
 
-        VentanaArchivos v1 = new VentanaArchivos();
+       VentanaArchivos v1 = new VentanaArchivos(gestor_alumno, gestor_curso);
 
     }
 
