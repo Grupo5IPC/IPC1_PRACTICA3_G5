@@ -90,7 +90,6 @@ public class Gestor_alumno {
     }
 
     public int[] Cont_Genero() {
-        int[] arreglo = null;
         int contMasc = 0;
         int contFem = 0;
 
@@ -103,12 +102,104 @@ public class Gestor_alumno {
                 ++contFem;
             }
         }
+        int[] arreglo = new int[2];
         arreglo[0] = contMasc;
         arreglo[1] = contFem;
-        System.out.println("Masculinos = " + contMasc);
-        System.out.println("Femeninos = " + contFem);
-        
+        //System.out.println("Masculinos = " + contMasc);
+        //System.out.println("Femeninos = " + contFem);
+
         return arreglo;
+    }
+
+    public int[] Generar_Edades() {
+        String[] splitFecha = new String[3];
+        int[] Edades = new int[alumnos.length];
+        for (int i = 0; i < alumnos.length; i++) {
+            splitFecha = alumnos[i].getFecha().split("/");
+            int Nac = Integer.parseInt(splitFecha[2]);
+            Edades[i] = 2021 - Nac;
+            //System.out.println("Edad " + i + " = " + Edades[i]);
+        }
+        return Edades;
+    }
+
+    public int[] Cont_Edades() {
+        int Rango1 = 0;
+        int Rango2 = 0;
+        int Rango3 = 0;
+        int Rango4 = 0;
+        int Rango5 = 0;
+        int Rango6 = 0;
+        int Rango7 = 0;
+        int Rango8 = 0;
+        int Rango9 = 0;
+        int Rango10 = 0;
+        int[] AuxEdades = Generar_Edades();
+        for (int i = 0; i < alumnos.length; i++) {
+            if (AuxEdades[i] >= 0 && AuxEdades[i] <= 9) {
+                ++Rango1;
+            }
+            if (AuxEdades[i] >= 10 && AuxEdades[i] <= 19) {
+                ++Rango2;
+            }
+            if (AuxEdades[i] >= 20 && AuxEdades[i] <= 29) {
+                ++Rango3;
+            }
+            if (AuxEdades[i] >= 30 && AuxEdades[i] <= 39) {
+                ++Rango4;
+            }
+            if (AuxEdades[i] >= 40 && AuxEdades[i] <= 49) {
+                ++Rango5;
+            }
+            if (AuxEdades[i] >= 50 && AuxEdades[i] <= 59) {
+                ++Rango6;
+            }
+            if (AuxEdades[i] >= 60 && AuxEdades[i] <= 69) {
+                ++Rango7;
+            }
+            if (AuxEdades[i] >= 70 && AuxEdades[i] <= 79) {
+                ++Rango8;
+            }
+            if (AuxEdades[i] >= 80 && AuxEdades[i] <= 89) {
+                ++Rango9;
+            }
+            if (AuxEdades[i] >= 90 && AuxEdades[i] <= 100) {
+                ++Rango10;
+            }
+        }
+        int[] arregloEdades = new int[10];
+        arregloEdades[0] = Rango1;
+        arregloEdades[1] = Rango2;
+        arregloEdades[2] = Rango3;
+        arregloEdades[3] = Rango4;
+        arregloEdades[4] = Rango5;
+        arregloEdades[5] = Rango6;
+        arregloEdades[6] = Rango7;
+        arregloEdades[7] = Rango8;
+        arregloEdades[8] = Rango9;
+        arregloEdades[9] = Rango10;
+
+        /*System.out.println("0-9 = " + Rango1);
+        System.out.println("10-19 = " + Rango2);
+        System.out.println("20-29 = " + Rango3);
+        System.out.println("30-39 = " + Rango4);
+        System.out.println("40-49 = " + Rango5);
+        System.out.println("50-59 = " + Rango6);
+        System.out.println("60-69 = " + Rango7);
+        System.out.println("70-79 = " + Rango8);
+        System.out.println("80-89 = " + Rango9);
+        System.out.println("90-100 = " + Rango10);*/
+        return arregloEdades;
+    }
+
+    public double[] CursosNombre() {
+        double[] AuxNombre = new double[notas.length];
+        for (int i = 0; i < notas.length; i++) {
+            if (notas[i] != null) {
+                AuxNombre[i] = notas[i].getNota();
+            }
+        }
+        return AuxNombre;
     }
 
     public boolean asginar_curso(int id_a, int id_c, String fecha) {

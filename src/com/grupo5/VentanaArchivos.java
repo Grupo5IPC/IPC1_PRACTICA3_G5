@@ -1,5 +1,7 @@
 package com.grupo5;
 
+import com.grupo5.Alumnos.Gestor_alumno;
+import com.grupo5.Cursos.Gestor_curso;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -87,7 +89,7 @@ public static Gestor_alumno gestor_alumno;
                 Main.Asignacion(ruta + "\\Asignacion.csv");
                 JOptionPane.showMessageDialog(this, "Los archivos han sido cargados exitosamente");
                 this.setVisible(false);
-            new Menu(gestor_alumno, gestor_curso);
+                Menu menu = new Menu(gestor_alumno, gestor_curso);
             }
         }
 

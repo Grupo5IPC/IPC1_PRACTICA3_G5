@@ -1,7 +1,10 @@
 package com.grupo5;
 
 import com.grupo5.Alumnos.Gestor_alumno;
-import com.grupo5.Grafica.GrafPie;
+import com.grupo5.Cursos.Gestor_curso;
+import com.grupo5.Grafica.GraficaEdades;
+import com.grupo5.Grafica.GraficaGenero;
+import com.grupo5.Grafica.GraficaNotas;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -19,7 +22,7 @@ public class Menu extends JFrame implements ActionListener {
     JButton botonBar1 = new JButton("Grafica por edad (Barras)");
     JButton botonBar2 = new JButton("Grafica por notas (Barras)");
     JButton botonInicio = new JButton("Inicio");
-   public static Gestor_alumno gestor_alumno;
+    public static Gestor_alumno gestor_alumno;
     public static Gestor_curso gestor_curso;
 
     public Menu(Gestor_alumno alumno, Gestor_curso curso) {
@@ -78,7 +81,13 @@ public class Menu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.botonPie) {
             this.dispose();
-            GrafPie grafica = new GrafPie(gestor_alumno, gestor_curso);
+            GraficaGenero grafica = new GraficaGenero(gestor_alumno,gestor_curso);
+        }if (ae.getSource() == this.botonBar1) {
+            this.dispose();
+            GraficaEdades grafica2 = new GraficaEdades(gestor_alumno,gestor_curso);
+        }if (ae.getSource() == this.botonBar2) {
+            this.dispose();
+            GraficaNotas grafica3 = new GraficaNotas(gestor_alumno,gestor_curso);
         }
     }
 
