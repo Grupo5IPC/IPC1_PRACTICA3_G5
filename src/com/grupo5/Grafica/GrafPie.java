@@ -28,8 +28,11 @@ public class GrafPie extends JFrame implements ActionListener {
     JTextField txtRuta, txtTitulo;
     JButton btnOrdenar;
     public static Gestor_alumno gestor_alumno;
+    public static Gestor_curso gestor_curso;
 
-    public GrafPie() {
+    public GrafPie(Gestor_alumno alumno, Gestor_curso curso) {
+        gestor_alumno = alumno;
+        gestor_curso = curso;
         setTitle("Proyecto de IPC");
         //Icono
         Toolkit mipantalla = Toolkit.getDefaultToolkit();
