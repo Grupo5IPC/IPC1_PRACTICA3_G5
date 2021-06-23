@@ -10,14 +10,17 @@ import java.io.File;
 import javax.swing.*;
 
 public class VentanaArchivos extends JFrame implements ActionListener {
-
+public static Gestor_alumno gestor_alumno;
+    public static Gestor_curso gestor_curso;
     JLabel titulo = new JLabel("CARGAR ARCHIVOS");
     JLabel info = new JLabel("Ingresa el nombre de la carpeta");
     JTextField textField = new JTextField();
     JButton boton = new JButton("Cargar");
     JButton aceptar = new JButton("Aceptar");
 
-    public VentanaArchivos() {
+    public VentanaArchivos(Gestor_alumno alumno, Gestor_curso curso) {
+        gestor_alumno = alumno;
+        gestor_curso = curso;
         setTitle("Proyecto de IPC");
         //Icono
         Toolkit mipantalla = Toolkit.getDefaultToolkit();
@@ -84,7 +87,7 @@ public class VentanaArchivos extends JFrame implements ActionListener {
                 Main.Asignacion(ruta + "\\Asignacion.csv");
                 JOptionPane.showMessageDialog(this, "Los archivos han sido cargados exitosamente");
                 this.setVisible(false);
-            new Menu();
+            new Menu(gestor_alumno, gestor_curso);
             }
         }
 
