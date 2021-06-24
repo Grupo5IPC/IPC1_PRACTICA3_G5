@@ -18,10 +18,15 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import com.grupo5.Alumnos.*;
+import com.grupo5.Cursos.Gestor_curso;
+import static com.grupo5.Grafica.GrafPie.gestor_alumno;
 import java.awt.BorderLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class GrafPie extends JFrame implements ActionListener {
+public class GrafPie extends JFrame implements ActionListener, Runnable {
 
+    Thread hilo;
     JFrame ventana;
     JLabel titulo = new JLabel("GRAFICA DE PIE POR SEXO");
     JButton boton = new JButton("Ordenar");
@@ -46,7 +51,7 @@ public class GrafPie extends JFrame implements ActionListener {
 
         setSize(anchoPantalla / 2, alturaPantalla / 2);
 
-        setLocation(anchoPantalla / 4, alturaPantalla / 4);
+        setLocation(anchoPantalla / 50, alturaPantalla / 50);
         this.getContentPane().setBackground(null);
         this.setResizable(false);
         this.setLayout(null);
@@ -54,7 +59,8 @@ public class GrafPie extends JFrame implements ActionListener {
         this.setVisible(true);
 
         Componentes();
-        Grafica();
+//        Grafica();
+        hilo.start();
     }
 
     public void Componentes() {
@@ -74,6 +80,52 @@ public class GrafPie extends JFrame implements ActionListener {
         /*panel1.setSize(this);
         panel1.setVisible(true);
         this.add(panel1);*/
+    }
+
+    public void start() {
+        if (hilo == null) {
+            hilo = new Thread(this);
+            hilo.start();
+        }
+    }
+
+    public void stop() {
+        if (hilo != null) {
+            hilo.stop();
+            hilo = null;
+        }
+    }
+
+    @Override
+    public void run() {
+        Thread miHilo = Thread.currentThread();
+        int[] Aux = gestor_alumno.Cont_Genero();
+
+        while (miHilo == hilo) {
+            try {
+                
+                DefaultPieDataset datos = new DefaultPieDataset();
+                for (int i = 0; i < Aux.length; i++) {
+                   Thread.sleep(1000); 
+            datos.setValue("Hombres", Aux[0]);
+            datos.setValue("Mujeres", Aux[1]);
+            //System.out.println("Hombres:" + Aux[0]);
+            //System.out.println("Mujeres:" + Aux[1]);
+                    System.out.println(Aux[0]+"       "+Aux[1]);
+            JFreeChart grafica = ChartFactory.createPieChart("Generos", datos, true, true, false);
+            ChartPanel panel = new ChartPanel(grafica);
+            panel.setMouseWheelEnabled(true);
+            panel.setPreferredSize(new Dimension(600, 500));
+
+            this.setLayout(new BorderLayout());
+            this.add(panel, BorderLayout.NORTH);
+            pack();
+            repaint();
+                }
+            } catch (InterruptedException e) {
+            }
+            
+        }
     }
 
     public void Grafica() {

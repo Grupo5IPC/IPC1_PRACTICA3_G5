@@ -9,7 +9,7 @@ package com.grupo5.Alumnos;
  * @author Ludwin
  */
 public class Gestor_alumno {
-
+    public static int suma = 0;
     Alumno[] alumnos;
     Asignacion_alumno[] asignaciones;
     Notas[] notas;
@@ -98,8 +98,10 @@ public class Gestor_alumno {
 
             if (alumnos[i].getGenero() == 'M') {
                 ++contMasc;
+                suma =+ 1;
             } else {
                 ++contFem;
+                suma =+1;
             }
         }
         int[] arreglo = new int[2];

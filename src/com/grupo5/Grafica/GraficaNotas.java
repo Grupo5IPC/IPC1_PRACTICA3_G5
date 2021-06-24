@@ -49,7 +49,7 @@ public class GraficaNotas extends JFrame implements ActionListener {
 
         setSize(anchoPantalla / 2, alturaPantalla / 2);
 
-        setLocation(anchoPantalla / 4, alturaPantalla / 4);
+        setLocation(anchoPantalla / 5, alturaPantalla / 7);
         this.getContentPane().setBackground(null);
         this.setResizable(false);
         this.setLayout(null);
